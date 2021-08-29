@@ -1,17 +1,17 @@
 @font-face {
-    font-family: PinkChicken;
-    src: url('../font/PinkChicken-Regular.ttf');
+    font-family: Nunito;
+    src: url('../font/Nunito-SemiBold.ttf');
 }
 body {
     margin: 0;
-    background-color: #ffcdcc;
+    background-color: #b9f6ca;
     font-size:24px;
-    font-family: PinkChicken, "Comic Sans MS", "Comic Sans", "Chalkboard SE", "Comic Neue", cursive;
+    font-family: Nunito, "Comic Sans MS", "Comic Sans", "Chalkboard SE", "Comic Neue", cursive;
     text-align: center;
 }
 a {
     text-decoration:none;
-    color:#9e7f7e;
+    color:#00C853;
 }
 a:hover {
     color: black;
