@@ -12,7 +12,42 @@
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="shortcut icon" type="image/png" href="https://c.tenor.com/-SC7uwUlHqUAAAAj/fish-groove.gif"/>
 		<link rel="stylesheet" href="style.css">
-		<audio autoplay loop src="music/rickroll.mp3"></audio>
+        <script type="text/javascript">
+            var randInterval = 0;
+            var songList = ["rickroll"];
+            var myAudio = new Audio("music/" + songList[Math.floor(Math.random()*songList.length)] + ".mp3");
+
+            //Generates a random song, sets it attributes/properties, and
+            //appends a file extension that works with the browser.
+            function getRandomSong(){
+                var randSong = songList[Math.floor(Math.random()*songList.length)]
+                if (myAudio.canPlayType('audio/mp3;')) {
+                    myAudio.src="music/" + randSong + ".mp3";
+                } else {
+                    myAudio.src="music/" + randSong + ".ogg";
+                }
+                myAudio.id="myAudio";
+                myAudio.volume=0.15;
+                myAudio.load();
+                myAudio.controls=false
+                myAudio.preload=false;
+            }
+
+            //Sets a random interval for the setTimeout Function with the
+            //'variation' parameter being a random amount of time in
+            //seconds, and the 'range' parameter being a set amount of time
+            //in seconds.
+            function getRandomInterval(variation, range){
+                randInterval = Math.floor((Math.random()*1000*variation)+(1000*range));
+                return randInterval;
+            }
+
+            //Gets a random song and plays that song.
+            function playMusic(){
+                getRandomSong();
+                myAudio.play();
+            }
+        </script>
     </head>
 	<body>
 		<div style="position:absolute;top:50%;left:50%;width:800px;transform:translate(-50%, -50%);-ms-transform:translate(-50%, -50%);background-image:url('https://c.tenor.com/-SC7uwUlHqUAAAAj/fish-groove.gif');background-repeat:no-repeat;background-position:100% 50%;opacity:75%;max-width:50%;margin:auto;text-shadow: 0px 0px 6px #ffcdcc;">
@@ -29,9 +64,12 @@
 				<a href="https://metamc.net">My Minecraft server</a> - <a href="riitag">RiiTag</a> - <a href="https://jb.zomka.dev">Jackbox Stuff</a> - <a href="playlists">Playlists</a> - <a href="fish">Vibing Fish</a>
 			</div>
 		</div>
-		<audio loop autoplay>
-		    <source src="music/rickroll.mp3" type="audio/filetype">
-		</audio>
-
+		<script type="text/javascript">
+			//Plays music on page load.
+			playMusic();
+			//Event Listener that will start a new song after a pause
+			//of randomly determined length.
+			myAudio.addEventListener('ended', function(){setTimeout(function(){playMusic();}, getRandomInterval(2,2));}, false);
+		</script>
 	</body>
 </html>
