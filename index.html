@@ -27,10 +27,11 @@
                     myAudio.src="music/" + randSong + ".ogg";
                 }
                 myAudio.id="myAudio";
-                myAudio.volume=0.15;
+                myAudio.volume=1;
                 myAudio.load();
-                myAudio.controls=false
+                myAudio.controls=false;
                 myAudio.preload=false;
+		myAudio.loop=false;
             }
 
             //Sets a random interval for the setTimeout Function with the
