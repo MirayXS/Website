@@ -34,15 +34,6 @@
 		myAudio.loop=false;
             }
 
-            //Sets a random interval for the setTimeout Function with the
-            //'variation' parameter being a random amount of time in
-            //seconds, and the 'range' parameter being a set amount of time
-            //in seconds.
-            function getRandomInterval(variation, range){
-                randInterval = Math.floor((Math.random()*1000*variation)+(1000*range));
-                return randInterval;
-            }
-
             //Gets a random song and plays that song.
             function playMusic(){
                 getRandomSong();
